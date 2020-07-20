@@ -22,16 +22,30 @@ while (numeri.length < 17) {
 }
 console.log(numeri);
  var numeroUtente = [];
- // deve chiedere all'utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100
+// deve chiedere all'utente (100 - 16) volte di inserire un numero alla volta,
+// sempre compreso tra 1 e 100
  var i = 0;
  while (numeroUtente.length < 6) {
      var inserimentoUtente = parseInt(prompt('Inserisci un numero'));
      if (!numeroUtente.includes(inserimentoUtente)) {
         numeroUtente.push(inserimentoUtente);
+// Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all'utente un altro numero.
+        var trovato = trovaElemento(numeri,inserimentoUtente);
+       function trovaElemento(lista,elemento) {
+           var i=0;
+           while (i < lista.length ) {
+               if( elemento== lista[i]){
+                   return alert('HAI PERSO LA PARTITA');
+                }
+               i++;
+           }
+       }
+// L’utente non può inserire più volte lo stesso numero.
     } else if (numeroUtente.includes(inserimentoUtente)) {
         alert('Numero già scritto');
     }
     i++;
  }
  console.log(numeroUtente);
- console.log(numeri);
+
+ // La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
