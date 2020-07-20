@@ -11,10 +11,27 @@
 // con difficoltà 1 =>  tra 1 e 80
 // con difficoltà 2 => tra 1 e 50
 
-
+// generare 16 numeri casuali tra 1 e 100
 var numeri = [];
-for (var i = 1; i < 17; i++) {
-     var random = Math.floor(Math.random() * (100 - 1) + 1);
-     numeri.push(random);
+while (numeri.length < 17) {
+    var random = Math.floor(Math.random() * (100 - 1) + 1);
+    // I numeri non possono essere duplicati
+    if (!numeri.includes(random)) {
+       numeri.push(random);
+    }
 }
 console.log(numeri);
+ var numeroUtente = [];
+ // deve chiedere all'utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100
+ var i = 0;
+ while (numeroUtente.length < 6) {
+     var inserimentoUtente = parseInt(prompt('Inserisci un numero'));
+     if (!numeroUtente.includes(inserimentoUtente)) {
+        numeroUtente.push(inserimentoUtente);
+    } else if (numeroUtente.includes(inserimentoUtente)) {
+        alert('Numero già scritto');
+    }
+    i++;
+ }
+ console.log(numeroUtente);
+ console.log(numeri);
